@@ -1,0 +1,16 @@
+<div class="journal_header">
+  <header class="journal_header_link">
+    <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+  </header>
+  <div class="journal_header_lists">
+    <ul class="journal_header_ul">
+      <li><a href="{{ .Site.BaseURL }}{{ "/journals" | relURL }}">Journals</a></li>
+{{ $baseURL := .Site.BaseURL }}
+{{ range $name, $taxonomy := .Site.Taxonomies }}
+  {{ $url := printf "%s%s/" $baseURL $name }}
+  <li><a href="{{ $url | relLangURL }}">{{ $name | title }}</a></li>
+{{ end }}
+
+    </ul>
+  </div>
+</div>
